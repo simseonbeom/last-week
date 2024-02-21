@@ -1,0 +1,8 @@
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))s(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const n of r.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&s(n)}).observe(document,{childList:!0,subtree:!0});function c(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function s(t){if(t.ep)return;t.ep=!0;const r=c(t);fetch(t.href,r)}})();function i(e,o=document){if(typeof e!="string")throw new Error("getNode 함수의 인수는 문자 타입 이어야 합니다.");return o.nodeType!==document.DOCUMENT_NODE&&(o=document.querySelector(o)),o.querySelector(e)}function f(e){return Object.prototype.toString.call(e).slice(8,-1).toLowerCase()}const a=e=>f(e)==="object",d=e=>f(e)==="number";function m(e,o){typeof e=="string"&&(e=i(e)),e.insertAdjacentHTML("beforeend",o)}i(".first");i(".second");const u={shouldReject:!1,timeout:1e3,data:"아싸 성공!",errorMessage:"알 수 없는 오류가 발생했습니다."};function p(e){let o={...u};d(e)&&(o.timeout=e),a(e)&&(o={...u,...e});let{timeout:c,shouldReject:s,errorMessage:t,data:r}=o;return new Promise((n,l)=>{setTimeout(()=>{s?l({message:t}):n(r)},c)})}p(1e3);const g="/assets/santa-Ck56z81l.png",b="main-module__buttonA___q5tH6";const y=i("#app"),_=`
+  <figure class="container">
+    <img style="width:30vw" src="${g}" />
+    <figcaption>산타모자를 쓴 호랑이</figcaption>
+  </figure>
+  <button class="${b}" type="button">버튼</button>
+
+`;m(y,_);
